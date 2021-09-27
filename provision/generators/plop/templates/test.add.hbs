@@ -16,13 +16,13 @@ func Test{{pascalCase testName}}Success(t *testing.T) {
 	environment := "test"
 	enableDocker := true
 	stage := "test"
-	name := "ec2-instance-{{dashCase testName}}"
+	name := "instance-{{dashCase testName}}"
 	publicKey := "../fixtures/keys/instance-test.pub"
 	privateKey := "../fixtures/keys/instance-test.pem"
 
 	terraformOptions := &terraform.Options{
 		// The path to where your Terraform code is located
-        TerraformDir: "ec2-instance-{{dashCase testName}}",
+        TerraformDir: "instance-{{dashCase testName}}",
 		Upgrade:      true,
 		Vars: map[string]interface{}{
 			"namespace":      namespace,
