@@ -1,4 +1,15 @@
 locals {
+  templates_path = format("%s/%s", "/var/tmp/scripts", "ec2-instance")
+  templates = {
+    docker = {
+      install = {
+        template = format("%s/%s", path.module, "provision/scripts/docker/install.tpl.sh")
+        file     = format("%s/%s", local.templates_path, "/docker_install.sh")
+        vars     = {}
+      }
+    }
+  }
+
   defaults = {
     rule_ingress = {
       type        = "ingress"
@@ -10,25 +21,30 @@ locals {
   }
 
   input = {
-    rule_ingress = length(var.rule_ingress) != 0 ? var.rule_ingress : [local.defaults.rule_ingress]
+    rule_ingress   = length(var.rule_ingress) != 0 ? var.rule_ingress : [local.defaults.rule_ingress]
+    enabled_docker = var.enabled_docker
   }
 
   generated = {
     rule_ingress = {
       for key, value in local.input.rule_ingress : key => merge(local.defaults.rule_ingress, value)
     }
-    name = var.name
-    tags = var.tags
+    name           = var.name
+    tags           = var.tags
+    enabled_docker = local.input.enabled_docker
   }
 
   outputs = {
-    rule_ingress = local.generated.rule_ingress
+    rule_ingress   = local.generated.rule_ingress
+    name           = local.generated.name
+    tags           = local.generated.tags
+    enabled_docker = local.generated.enabled_docker
   }
 
 }
 
 resource "aws_key_pair" "this" {
-  key_name   = local.generated.name
+  key_name   = local.outputs.name
   public_key = file(var.public_key)
 
   lifecycle {
@@ -37,10 +53,10 @@ resource "aws_key_pair" "this" {
 }
 
 resource "aws_security_group" "this" {
-  name        = local.generated.name
+  name        = local.outputs.name
   description = "Allow traffic needed by instance"
 
-  tags = local.generated.tags
+  tags = local.outputs.tags
 
   lifecycle {
     create_before_destroy = true
@@ -54,7 +70,7 @@ resource "aws_security_group_rule" "ingress" {
   ]
 
   for_each          = local.outputs.rule_ingress
-  description       = format("Ingress %s", local.generated.name)
+  description       = format("Ingress %s", local.outputs.name)
   security_group_id = aws_security_group.this.id
   type              = lookup(each.value, "type")
   from_port         = lookup(each.value, "from_port")
@@ -73,7 +89,7 @@ resource "aws_security_group_rule" "egress" {
     "instance" = aws_security_group.this.id,
   }
 
-  description       = format("Egress %s: %s", local.generated.name, each.key)
+  description       = format("Egress %s: %s", local.outputs.name, each.key)
   security_group_id = each.value
   type              = "egress"
   from_port         = 0
@@ -91,7 +107,7 @@ resource "aws_instance" "this" {
     aws_security_group.this,
   ]
 
-  tags = local.generated.tags
+  tags = local.outputs.tags
 
   lifecycle {
     ignore_changes = [
@@ -123,7 +139,7 @@ resource "aws_instance" "this" {
     volume_type           = "gp2"
     volume_size           = "16"
     delete_on_termination = true
-    tags                  = local.generated.tags
+    tags                  = local.outputs.tags
   }
 
   metadata_options {

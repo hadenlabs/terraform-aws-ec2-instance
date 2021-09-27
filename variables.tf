@@ -30,6 +30,12 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "enabled_docker" {
+  type        = bool
+  description = "enabled install docker"
+  default     = false
+}
+
 variable "ssh_user" {
   type        = string
   description = "user ssh"
