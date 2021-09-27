@@ -171,6 +171,7 @@ title = "gitleaks config"
         regexes = [
             '''[a-zA-Z0-9._%+-]+@users.noreply.github.com''',
             '''[a-zA-Z0-9._%+-]+@yopmail.com''',
+            '''[a-zA-Z0-9._%+-]+@terraform-aws-ec2-instance-test.com''',
             '''git@github.com''',
             '''git@gitlab.com''',
             '''slovacus@gmail.com''',
@@ -222,11 +223,19 @@ title = "gitleaks config"
     description = "Files with keys and credentials"
     file = '''(?i)(id_rsa|passwd|id_rsa.pub|pgpass)$'''
     tags = ["key", "files"]
+    [rules.allowlist]
+        description = "ignore some"
+        files = ['''(.*pub|env)$''']
 
 [[rules]]
     description = "Extension Files with keys and credentials"
     file = '''(.*?)(pub|pem|ppk|key)$'''
     tags = ["key", "files"]
+    [rules.allowlist]
+        description = "ignore file test"
+        files = [
+          '''.*-test.*$''',
+        ]
 
 # Global allowlist
 [allowlist]
@@ -237,10 +246,12 @@ title = "gitleaks config"
     '''^\.gitleaks.toml$''',
     '''^yarn.lock$''',
     '''^sonar-project.properties$''',
+    '''^test/fixtures/keys/.*-test.*$''',
   ]
   paths = [
     '''^vendor/(.*?)$''',
     '''^node_modules/(.*?)$''',
+    '''^test/fixtures/keys/(.*?)$''',
   ]
 
 [whitelist]
@@ -251,8 +262,10 @@ title = "gitleaks config"
     '''^\.gitleaks.toml$''',
     '''^yarn.lock$''',
     '''^sonar-project.properties$''',
+    '''^test/fixtures/keys/.*-test.*$''',
   ]
   paths = [
     '''^vendor/(.*?)$''',
     '''^node_modules/(.*?)$''',
+    '''^test/fixtures/keys/(.*?)$''',
   ]
