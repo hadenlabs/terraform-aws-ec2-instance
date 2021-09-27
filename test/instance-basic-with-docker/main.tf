@@ -1,0 +1,19 @@
+module "tags" {
+  source      = "hadenlabs/tags/null"
+  version     = "0.1.1"
+  namespace   = var.namespace
+  environment = var.environment
+  stage       = var.stage
+  name        = var.name
+  tags        = var.tags
+}
+
+module "main" {
+  source         = "../.."
+  name           = module.tags.name
+  ami            = data.aws_ami.amazon_linux.id
+  tags           = module.tags.tags
+  enabled_docker = var.enabled_docker
+  public_key     = var.public_key
+  private_key    = var.private_key
+}

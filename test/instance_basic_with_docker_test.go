@@ -7,30 +7,32 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestBasicSuccess(t *testing.T) {
+func TestBasicWithDockerSuccess(t *testing.T) {
 
 	tags := map[string]interface{}{
 		"tag1": "tags1",
 	}
 	namespace := "company"
 	environment := "test"
+	enableDocker := true
 	stage := "test"
-	name := "server-basic"
+	name := "server-basic-with-docker"
 	publicKey := "../fixtures/keys/instance-test.pub"
 	privateKey := "../fixtures/keys/instance-test.pem"
 
 	terraformOptions := &terraform.Options{
 		// The path to where your Terraform code is located
-		TerraformDir: "instance-basic",
+		TerraformDir: "instance-basic-with-docker",
 		Upgrade:      true,
 		Vars: map[string]interface{}{
-			"namespace":   namespace,
-			"environment": environment,
-			"stage":       stage,
-			"name":        name,
-			"tags":        tags,
-			"public_key":  publicKey,
-			"private_key": privateKey,
+			"namespace":      namespace,
+			"environment":    environment,
+			"stage":          stage,
+			"name":           name,
+			"enabled_docker": enableDocker,
+			"tags":           tags,
+			"public_key":     publicKey,
+			"private_key":    privateKey,
 		},
 	}
 
