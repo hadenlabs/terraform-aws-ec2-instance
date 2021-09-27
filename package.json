@@ -37,8 +37,8 @@
   },
   "keywords": [
     "hadenlabs",
-    "template",
-    "base",
+    "instance",
+    "ec2",
     "tool"
   ],
   "bugs": {
