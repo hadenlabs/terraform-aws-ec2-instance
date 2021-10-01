@@ -3,7 +3,7 @@
 ```hcl
   module "main" {
     source  = "hadenlabs/ec2-instance/aws"
-    version = "0.0.0"
+    version = "0.1.0"
 
     providers = {
       aws = aws
@@ -32,7 +32,7 @@
 
   module "main" {
     source  = "hadenlabs/ec2-instance/aws"
-    version = "0.0.0"
+    version = "0.1.0"
     providers = {
       aws = aws
     }
