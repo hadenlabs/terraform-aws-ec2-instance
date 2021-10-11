@@ -14,7 +14,6 @@ resource "null_resource" "provision_core" {
     port        = self.triggers.port
     private_key = file(self.triggers.private_key)
     host        = self.triggers.host
-    timeout     = "15m"
   }
 
   provisioner "remote-exec" {
