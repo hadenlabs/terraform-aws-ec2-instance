@@ -10,11 +10,6 @@ type Config struct {
 	App App
 }
 
-// Configurer methods for config.
-type Configurer interface {
-	ReadConfig() (*Config, error)
-}
-
 // ReadConfig read values and files for config.
 func (c *Config) ReadConfig() (*Config, error) {
 	tag := version.Short()
