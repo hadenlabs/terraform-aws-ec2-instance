@@ -5,17 +5,21 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/app/external/faker"
+	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/testutil"
 )
 
 func TestBasicSuccess(t *testing.T) {
+	t.Parallel()
 
 	tags := map[string]interface{}{
 		"tag1": "tags1",
 	}
-	namespace := "company"
-	environment := "test"
-	stage := "test"
-	name := "server-basic"
+	namespace := testutil.Company
+	environment := testutil.Environment
+	stage := testutil.Stage
+	name := faker.Server().Name()
 	publicKey := "../fixtures/keys/instance-test.pub"
 	privateKey := "../fixtures/keys/instance-test.pem"
 
