@@ -23,6 +23,7 @@ locals {
   input = {
     rule_ingress   = length(var.rule_ingress) != 0 ? var.rule_ingress : [local.defaults.rule_ingress]
     enabled_docker = var.enabled_docker
+    aws_key        = var.aws_key
   }
 
   generated = {
@@ -31,6 +32,7 @@ locals {
     }
     name           = var.name
     tags           = var.tags
+    aws_key        = local.input.aws_key
     enabled_docker = local.input.enabled_docker
   }
 
@@ -39,17 +41,9 @@ locals {
     name           = local.generated.name
     tags           = local.generated.tags
     enabled_docker = local.generated.enabled_docker
+    aws_key        = local.generated.aws_key
   }
 
-}
-
-resource "aws_key_pair" "this" {
-  key_name   = local.outputs.name
-  public_key = file(var.public_key)
-
-  lifecycle {
-    create_before_destroy = true
-  }
 }
 
 resource "aws_security_group" "this" {
@@ -121,7 +115,7 @@ resource "aws_instance" "this" {
 
   ami               = var.ami
   instance_type     = var.instance_type
-  key_name          = aws_key_pair.this.key_name
+  key_name          = local.generated.aws_key
   source_dest_check = true
 
   vpc_security_group_ids = [
