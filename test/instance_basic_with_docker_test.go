@@ -5,18 +5,22 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/app/external/faker"
+	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/testutil"
 )
 
 func TestBasicWithDockerSuccess(t *testing.T) {
-
+	t.Parallel()
 	tags := map[string]interface{}{
 		"tag1": "tags1",
 	}
-	namespace := "company"
-	environment := "test"
-	enableDocker := true
-	stage := "test"
-	name := "server-basic-with-docker"
+	namespace := testutil.Company
+	environment := testutil.Environment
+	stage := testutil.Stage
+	name := faker.Server().Name()
+	enabledDocker := true
+
 	publicKey := "../fixtures/keys/instance-test.pub"
 	privateKey := "../fixtures/keys/instance-test.pem"
 
@@ -29,7 +33,7 @@ func TestBasicWithDockerSuccess(t *testing.T) {
 			"environment":    environment,
 			"stage":          stage,
 			"name":           name,
-			"enabled_docker": enableDocker,
+			"enabled_docker": enabledDocker,
 			"tags":           tags,
 			"public_key":     publicKey,
 			"private_key":    privateKey,
