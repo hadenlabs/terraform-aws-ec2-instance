@@ -17,8 +17,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_key"></a> [key](#module\_key) | hadenlabs/key-pair/aws | >=0.1 |
 | <a name="module_main"></a> [main](#module\_main) | ../.. | n/a |
-| <a name="module_tags"></a> [tags](#module\_tags) | hadenlabs/tags/null | 0.1.1 |
+| <a name="module_tags"></a> [tags](#module\_tags) | hadenlabs/tags/null | >=0.1 |
 
 ## Resources
 
@@ -30,12 +31,13 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT' | `string` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | Solution name, e.g. 'app' or 'jenkins' | `string` | n/a | yes |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | n/a | yes |
+| <a name="input_enabled_docker"></a> [enabled\_docker](#input\_enabled\_docker) | enabled install docker | `bool` | `false` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT' | `string` | `"us-east-1"` | no |
+| <a name="input_name"></a> [name](#input\_name) | Solution name, e.g. 'app' or 'jenkins' | `string` | `"jenkins"` | no |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | `"namespace"` | no |
 | <a name="input_private_key"></a> [private\_key](#input\_private\_key) | private key | `string` | n/a | yes |
 | <a name="input_public_key"></a> [public\_key](#input\_public\_key) | path of public key | `string` | n/a | yes |
-| <a name="input_stage"></a> [stage](#input\_stage) | Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release' | `string` | n/a | yes |
+| <a name="input_stage"></a> [stage](#input\_stage) | Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release' | `string` | `"staging"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `map('BusinessUnit','XYZ')` | `map(string)` | `{}` | no |
 
 ## Outputs
