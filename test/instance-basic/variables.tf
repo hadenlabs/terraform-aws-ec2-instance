@@ -38,6 +38,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "enabled_docker" {
+  type        = bool
+  description = "enabled install docker"
+  default     = false
+}
+
 variable "public_key" {
   description = "path of public key"
   type        = string
