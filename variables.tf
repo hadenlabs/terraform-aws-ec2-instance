@@ -14,9 +14,9 @@ variable "tags" {
   default     = {}
 }
 
-variable "public_key" {
+variable "aws_key" {
   type        = string
-  description = "public key"
+  description = "aws key pair name"
 }
 
 variable "private_key" {

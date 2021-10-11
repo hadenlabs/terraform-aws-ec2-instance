@@ -12,8 +12,3 @@ output "private_ip" {
   description = "private ip."
   value       = aws_instance.this.private_ip
 }
-
-output "aws_key_pair" {
-  description = "key_pair of instance."
-  value       = aws_key_pair.this
-}

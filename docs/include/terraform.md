@@ -23,7 +23,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_instance.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
-| [aws_key_pair.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
 | [aws_security_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_security_group_rule.egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.ingress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
@@ -35,11 +34,11 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_ami"></a> [ami](#input\_ami) | Id of ami of aws | `string` | n/a | yes |
+| <a name="input_aws_key"></a> [aws\_key](#input\_aws\_key) | aws key pair name | `string` | n/a | yes |
 | <a name="input_enabled_docker"></a> [enabled\_docker](#input\_enabled\_docker) | enabled install docker | `bool` | `false` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | type instance | `string` | `"t2.micro"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Solution name, e.g. 'app' or 'jenkins' | `string` | n/a | yes |
 | <a name="input_private_key"></a> [private\_key](#input\_private\_key) | private key | `string` | n/a | yes |
-| <a name="input_public_key"></a> [public\_key](#input\_public\_key) | public key | `string` | n/a | yes |
 | <a name="input_rule_ingress"></a> [rule\_ingress](#input\_rule\_ingress) | list rule for security group | <pre>list(object({<br>    from_port   = number<br>    to_port     = number<br>    protocol    = string<br>    cidr_blocks = list(string)<br>  }))</pre> | `[]` | no |
 | <a name="input_ssh_port"></a> [ssh\_port](#input\_ssh\_port) | port ssh | `number` | `22` | no |
 | <a name="input_ssh_user"></a> [ssh\_user](#input\_ssh\_user) | user ssh | `string` | `"ubuntu"` | no |
@@ -49,7 +48,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_aws_key_pair"></a> [aws\_key\_pair](#output\_aws\_key\_pair) | key\_pair of instance. |
 | <a name="output_instance"></a> [instance](#output\_instance) | instance instance. |
 | <a name="output_private_ip"></a> [private\_ip](#output\_private\_ip) | private ip. |
 | <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | public ip. |
