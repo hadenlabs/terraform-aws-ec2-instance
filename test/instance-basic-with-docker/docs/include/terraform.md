@@ -11,14 +11,15 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.60.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.62.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_key"></a> [key](#module\_key) | hadenlabs/key-pair/aws | >=0.1 |
 | <a name="module_main"></a> [main](#module\_main) | ../.. | n/a |
-| <a name="module_tags"></a> [tags](#module\_tags) | hadenlabs/tags/null | 0.1.1 |
+| <a name="module_tags"></a> [tags](#module\_tags) | hadenlabs/tags/null | >=0.1 |
 
 ## Resources
 
