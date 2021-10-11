@@ -19,7 +19,6 @@ module "key" {
   ]
 }
 
-
 module "main" {
   source         = "../.."
   name           = module.tags.name
