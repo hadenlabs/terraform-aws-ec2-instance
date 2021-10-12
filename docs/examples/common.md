@@ -24,7 +24,7 @@
 
   module "main" {
     source  = "hadenlabs/ec2-instance/aws"
-    version = "0.1.0"
+    version = "0.2.0"
     name           = module.tags.name
     ami            = data.aws_ami.amazon_linux.id
     tags           = module.tags.tags
@@ -64,7 +64,7 @@
 
   module "main" {
     source  = "hadenlabs/ec2-instance/aws"
-    version = "0.1.0"
+    version = "0.2.0"
     providers = {
       aws = aws
     }
