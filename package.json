@@ -1,6 +1,6 @@
 {
   "name": "@hadenlabs/terraform-aws-ec2-instance",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "terraform-aws-ec2-instance",
   "author": "Luis Mayta <slovacus@gmail.com>",
   "license": "LGPL-3.0",
