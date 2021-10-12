@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. This file uses change log convention from [keep a CHANGELOG](http://keepachangelog.com/en/0.3.0/).
 
+<a name="0.2.0"></a>
+
+## [0.2.0](https://github.com/hadenlabs/terraform-aws-ec2-instance/compare/0.1.0...0.2.0)
+
+> 2021-10-11
+
+### Bug Fixes
+
+- github actions test ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- clean timeout commands ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+
+### Code Refactoring
+
+- interface configuration ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+
+### Features
+
+- implement module aws key ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement module aws key ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement not created key pair aws ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement ignore git files ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement values for generate instance ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement structure test ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement task ssh ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+- implement code faker external ([#10](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues/10))
+
 <a name="0.1.0"></a>
 
 ## 0.1.0
