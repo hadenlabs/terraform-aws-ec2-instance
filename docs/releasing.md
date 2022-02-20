@@ -1,6 +1,12 @@
-<!-- Space: TerraformAwsEc2Instance -->
-<!-- Parent: Project -->
-<!-- Title: Releasing -->
+<!-- Space: Projects -->
+<!-- Parent: TerraformAwsEc2Instance -->
+<!-- Title: Releasing TerraformAwsEc2Instance  -->
+
+<!-- Label: TerraformAwsEc2Instance -->
+<!-- Label: Project -->
+<!-- Label: Releasing -->
+<!-- Include: docs/disclaimer.md -->
+<!-- Include: ac:toc -->
 
 # Releasing
 

@@ -1,7 +1,3 @@
-<!-- Space: TerraformAwsEc2Instance -->
-<!-- Parent: Project -->
-<!-- Title: Troubleshooting -->
-
 # Troubleshooting
 
 ## Environment
