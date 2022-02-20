@@ -176,6 +176,7 @@ title = "gitleaks config"
             '''git@gitlab.com''',
             '''slovacus@gmail.com''',
             '''luis@hadenlabs.com''',
+            '''security@hadenlabs.com''',
             '''hola@hadenlabs.com''',
             '''hello@hadenlabs.com''',
             '''support@hadenlbas.com''',
@@ -240,6 +241,13 @@ title = "gitleaks config"
 # Global allowlist
 [allowlist]
   description = "Whitelisted files"
+  paths = [
+    '''^vendor/''',
+    '''^bower_components/''',
+    '''^public/''',
+    '''^node_modules/''',
+    '''^theme/''',
+  ]
   files = [
     '''(.*?)(jpg|gif|png|doc|pdf|bin|mp3|mp4|mov|ttf|woff|woff2|eot|lock)$''',
     '''^\.gitignore$''',
@@ -248,11 +256,7 @@ title = "gitleaks config"
     '''^sonar-project.properties$''',
     '''^test/fixtures/keys/.*-test.*$''',
   ]
-  paths = [
-    '''^vendor/(.*?)$''',
-    '''^node_modules/(.*?)$''',
-    '''^test/fixtures/keys/(.*?)$''',
-  ]
+  commits = []
 
 [whitelist]
   description = "image and html allowlists"
