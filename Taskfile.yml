@@ -2,6 +2,7 @@ version: '3'
 
 includes:
   changelog: ./provision/task/changelog.yml
+  confluence: ./provision/task/confluence.yml
   python: ./provision/task/python.yml
   yarn: ./provision/task/yarn.yml
   git: ./provision/task/git.yml
@@ -11,6 +12,7 @@ includes:
   gitflow: ./provision/task/gitflow.yml
   version: ./provision/task/version.yml
   mark: ./provision/task/mark.yml
+  plantuml: ./provision/task/plantuml.yml
   prettier: ./provision/task/prettier.yml
   sonar: ./provision/task/sonar.yml
   ssh: ./provision/task/ssh.yml
@@ -39,6 +41,7 @@ vars:
   REVIEWERS: luismayta
   PYTHON_VERSION: 3.9.2
   GIT_IGNORES: python,node,go,zsh,sonar,terraform
+  GOLANGCI_VERSION: 1.42.0
   README_FILE: README.md
   GIT_IGNORES_CUSTOM: >-
     bin
@@ -78,7 +81,6 @@ tasks:
       - gitflow:check
       - docs:check
       - yarn:check
-      - sonar:check
       - go:check
 
   readme:
@@ -101,14 +103,21 @@ tasks:
   setup:
     desc: Setup dependences of project
     cmds:
+      - >-
+        [ -e ".env" ] || cp -rf .env.example .env
       - task: python:setup
       - task: python:precommit
+      - task: git:setup
       - task: go:setup
       - task: yarn:setup
-      - task: git:setup
       - task: gitflow:setup
 
   environment:
     desc: Setup environment of project
     cmds:
       - task: python:environment
+
+  test:
+    desc: test all
+    cmds:
+      - task: go:test
