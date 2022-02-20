@@ -1,3 +1,11 @@
+<!-- Space: Projects -->
+<!-- Parent: TerraformAwsEc2Instance -->
+<!-- Title: Examples TerraformAwsEc2Instance -->
+
+<!-- Label: Examples -->
+<!-- Include: docs/disclaimer.md -->
+<!-- Include: ac:toc -->
+
 ### common
 
 ```hcl

@@ -1,11 +1,11 @@
 <!-- Space: Projects -->
 <!-- Parent: TerraformAwsEc2Instance -->
-<!-- Title: Commands TerraformAwsEc2Instance -->
+<!-- Title: Components TerraformAwsEc2Instance -->
 
 <!-- Label: TerraformAwsEc2Instance -->
 <!-- Label: Project -->
-<!-- Label: Commands -->
+<!-- Label: Components -->
 <!-- Include: docs/disclaimer.md -->
 <!-- Include: ac:toc -->
 
-## Commands
+# components
