@@ -19,8 +19,8 @@ email:
   support: support@hadenlabs.com
 
 confluence:
-  space: TerraformAwsEc2Instance
-  title: Project
+  space: Projects
+  title: TerraformAwsEc2Instance
 
 # Logo for this project
 #logo: docs/logo.png
@@ -54,14 +54,14 @@ badges:
   - name: KeepAChangelog
     image: https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-orange
     url: https://keepachangelog.com
+  - name: Terraform Version
+    image: https://img.shields.io/badge/terraform-1.x%20|%200.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform
+    url: https://github.com/hashicorp/terraform/releases
 
 requirements: |-
 
   This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
-
-  - [Pyenv](https://github.com/pyenv/pyenv)
-  - [Docker](https://www.docker.com/)
-  - [python](https://www.python.org)
+  - [terraform](https://github.com/hashicorp/terraform)
   - [taskfile](https://github.com/go-task/task)
 
 # Short description of this project
