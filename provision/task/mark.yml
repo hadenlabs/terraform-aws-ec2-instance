@@ -2,17 +2,6 @@
 
 version: '3'
 
-vars:
-  FILES_CONFLUENCE:
-    sh: >-
-      find ./ -type f -name '*.md' -print
-      | grep -v '.tpl.md'
-      | grep -v '.terraform'
-      | xargs grep '<!-- Space'
-      | cut -d : -f 1
-      | sort -u
-      | xargs
-
 tasks:
   default:
     desc: Show commands confluence
@@ -46,7 +35,7 @@ tasks:
       - sh: test -v CONFLUENCE_USER
         msg: 'Please add var environment CONFLUENCE_USER'
 
-  mark:
+  push:
     desc: run mark.
     run: once
     cmds:
@@ -60,6 +49,7 @@ tasks:
         kovetskiy/mark:latest mark -u {{.CONFLUENCE_USER}}
         -p {{.CONFLUENCE_ACCESS_TOKEN}} -b {{.CONFLUENCE_BASE_URL}}
         -f {{.CLI_ARGS}}
+        --trace
       - cmd: echo ending sync files
     deps:
       - task: check

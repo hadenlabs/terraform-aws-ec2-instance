@@ -18,10 +18,6 @@ categories:
 email:
   support: support@hadenlabs.com
 
-confluence:
-  space: Projects
-  title: TerraformAwsEc2Instance
-
 # Logo for this project
 #logo: docs/logo.png
 
