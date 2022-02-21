@@ -49,7 +49,6 @@ tasks:
         kovetskiy/mark:latest mark -u {{.CONFLUENCE_USER}}
         -p {{.CONFLUENCE_ACCESS_TOKEN}} -b {{.CONFLUENCE_BASE_URL}}
         -f {{.CLI_ARGS}}
-        --trace
       - cmd: echo ending sync files
     deps:
       - task: check
