@@ -8,6 +8,7 @@ vars:
       find ./ -type f -name '*.md' -print
       | grep -v '.tpl.md'
       | grep -v '.terraform'
+      | sort -u
       | xargs grep '<!-- Space:'
       | cut -d : -f 1
       | sort -u
