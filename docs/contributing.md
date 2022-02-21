@@ -5,7 +5,7 @@
 <!-- Label: TerraformAwsEc2Instance -->
 <!-- Label: Project -->
 <!-- Label: Contributing -->
-<!-- Include: docs/disclaimer.md -->
+<!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
 
 # How To Contribute
