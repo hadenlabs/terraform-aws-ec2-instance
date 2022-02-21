@@ -7,7 +7,7 @@
 <!-- Label: Project -->
 <!-- Label: Contributing -->
 <!-- Label: GitFlow -->
-<!-- Include: docs/disclaimer.md -->
+<!-- Include: ../disclaimer.md -->
 <!-- Include: ac:toc -->
 
 To contribute to terraform-aws-ec2-instance project on [GitHub](https://github.com/hadenlabs/terraform-aws-ec2-instance), We use Gitflow (See more [here](https://datasift.github.io/gitflow/IntroducingGitFlow.html)) In a nutshell, it means that you should branch from the main repository and contribute back by making [pull request](https://github.com/hadenlabs/terraform-aws-ec2-instance/pulls).

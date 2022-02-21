@@ -3,7 +3,7 @@
 <!-- Title: Roadmap TerraformAwsEc2Instance -->
 
 <!-- Label: Roadmap -->
-<!-- Include: docs/disclaimer.md -->
+<!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
 
 <!-- Macro: :todo:
