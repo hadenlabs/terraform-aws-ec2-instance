@@ -1,6 +1,3 @@
- <!-- Space: Projects -->
-<!-- Title: TerraformAwsEc2Instance -->
-
 <!--
 
 
