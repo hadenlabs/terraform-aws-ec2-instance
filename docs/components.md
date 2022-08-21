@@ -1,7 +1,6 @@
 <!-- Space: Projects -->
 <!-- Parent: TerraformAwsEc2Instance -->
 <!-- Title: Components TerraformAwsEc2Instance -->
-
 <!-- Label: TerraformAwsEc2Instance -->
 <!-- Label: Project -->
 <!-- Label: Components -->
