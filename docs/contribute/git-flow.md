@@ -2,12 +2,11 @@
 <!-- Parent: TerraformAwsEc2Instance -->
 <!-- Parent: Contributing TerraformAwsEc2Instance -->
 <!-- Title: Contributing GitFlow TerraformAwsEc2Instance -->
-
 <!-- Label: TerraformAwsEc2Instance -->
 <!-- Label: Project -->
 <!-- Label: Contributing -->
 <!-- Label: GitFlow -->
-<!-- Include: ../disclaimer.md -->
+<!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
 To contribute to terraform-aws-ec2-instance project on [GitHub](https://github.com/hadenlabs/terraform-aws-ec2-instance), We use Gitflow (See more [here](https://datasift.github.io/gitflow/IntroducingGitFlow.html)) In a nutshell, it means that you should branch from the main repository and contribute back by making [pull request](https://github.com/hadenlabs/terraform-aws-ec2-instance/pulls).
@@ -18,7 +17,7 @@ To contribute to terraform-aws-ec2-instance project on [GitHub](https://github.c
 
 To follow the instructions in this guide and start contributing to terraform-aws-ec2-instance project on Gitlab:
 
-1.  **Fork** the repo on GitLab
+1.  **Fork** the repo on GitHub
 2.  **Clone** the project to your own machine
 
 To synchronize with the main repository, add it to the remotes:

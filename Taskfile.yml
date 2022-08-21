@@ -9,7 +9,6 @@ includes:
   go: ./provision/task/go.yml
   docs: ./provision/task/docs.yml
   docker: ./provision/task/docker.yml
-  gitflow: ./provision/task/gitflow.yml
   version: ./provision/task/version.yml
   mark: ./provision/task/mark.yml
   plantuml: ./provision/task/plantuml.yml
@@ -78,7 +77,6 @@ tasks:
       - python:check
       - changelog:check
       - git:check
-      - gitflow:check
       - docs:check
       - yarn:check
       - go:check
@@ -93,6 +91,7 @@ tasks:
         --out {{.README_FILE}}
         --datasource config={{.README_YAML}}
         --datasource includes={{.README_INCLUDES}}
+      - task: prettier
 
   prettier:
     run: once
@@ -110,7 +109,6 @@ tasks:
       - task: git:setup
       - task: go:setup
       - task: yarn:setup
-      - task: gitflow:setup
 
   environment:
     desc: Setup environment of project

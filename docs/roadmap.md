@@ -1,7 +1,6 @@
 <!-- Space: Projects -->
 <!-- Parent: TerraformAwsEc2Instance -->
 <!-- Title: Roadmap TerraformAwsEc2Instance -->
-
 <!-- Label: Roadmap -->
 <!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
@@ -30,7 +29,7 @@
 
 The Roadmap is a list of all the things we're working on for the year.
 
-You can see the corresponding projects on [terraform-aws-k8s](https://github.com/hadenlabs/terraform-aws-k8s)
+You can see the corresponding projects on [terraform-aws-ec2-instance](https://github.com/hadenlabs/terraform-aws-ec2-instance)
 
 ## Legend
 
