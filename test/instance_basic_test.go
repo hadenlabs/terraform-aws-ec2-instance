@@ -17,7 +17,6 @@ func TestBasicSuccess(t *testing.T) {
 		"tag1": "tags1",
 	}
 	namespace := testutil.Company
-	environment := testutil.Environment
 	stage := testutil.Stage
 	name := faker.Server().Name()
 	publicKey := "../fixtures/keys/instance-test.pub"
@@ -29,7 +28,6 @@ func TestBasicSuccess(t *testing.T) {
 		Upgrade:      true,
 		Vars: map[string]interface{}{
 			"namespace":   namespace,
-			"environment": environment,
 			"stage":       stage,
 			"name":        name,
 			"tags":        tags,
