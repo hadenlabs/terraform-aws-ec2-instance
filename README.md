@@ -27,6 +27,8 @@ This is a list of plugins that need to be installed previously to enjoy all the 
 
 ## Usage
 
+# How to use this project
+
 ```hcl
   module "key" {
     source     = "hadenlabs/key-pair/aws"
@@ -115,22 +117,7 @@ File a GitHub [issue](https://github.com/hadenlabs/terraform-aws-ec2-instance/is
 
 ## Contributing
 
-### Bug Reports & Feature Requests
-
-Please use the [issue tracker](https://github.com/hadenlabs/terraform-aws-ec2-instance/issues) to report any bugs or file feature requests.
-
-### Development
-
-In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
-
-1.  **Fork** the repo on GitHub
-2.  **Clone** the project to your own machine
-3.  **Commit** changes to your own branch
-4.  **Push** your work back up to your fork
-
-5.  Submit a **Pull Request** so that we can review your changes
-
-**NOTE:** Be sure to rebase the latest changes from "upstream" before making a pull request!
+See [Contributing](./docs/contributing.md).
 
 ## Module Versioning
 
