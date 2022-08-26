@@ -21,7 +21,7 @@ func Server() FakeServer {
 }
 
 var (
-	names = []string{"Optimus-Prime", "Wheeljack", "Bumblebee"}
+	names = []string{"OptimusPrime", "Wheeljack", "Bumblebee"}
 )
 
 func (n fakeServer) Name() string {

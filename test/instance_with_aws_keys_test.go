@@ -6,13 +6,16 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 
+	"path/filepath"
+
+	"github.com/hadenlabs/terraform-aws-ec2-instance/config"
 	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/app/external/faker"
 	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/testutil"
 )
 
 func TestWithAwsKeysSuccess(t *testing.T) {
 	t.Parallel()
-
+	conf := config.Initialize()
 	tags := map[string]interface{}{
 		"tag1": "tags1",
 	}
@@ -20,8 +23,8 @@ func TestWithAwsKeysSuccess(t *testing.T) {
 	stage := testutil.Stage
 	name := faker.Server().Name()
 	enableDocker := true
-	publicKey := "../fixtures/keys/instance-test.pub"
-	privateKey := "../fixtures/keys/instance-test.pem"
+	publicKey := filepath.Join(conf.App.RootPath, string(testutil.PublicKey))
+	privateKey := filepath.Join(conf.App.RootPath, string(testutil.PrivateKey))
 
 	terraformOptions := &terraform.Options{
 		// The path to where your Terraform code is located

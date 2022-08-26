@@ -9,11 +9,15 @@ name: terraform-aws-ec2-instance
 
 # Tags of this project
 tags:
-  - template
+  - aws
+  - terraform
+  - ec2
+  - instance
 
 # Categories of this project
 categories:
-  - terraform-modules
+  - terraform-modules/aws
+  - terraform-modules/ec2
 
 email:
   support: support@hadenlabs.com
@@ -53,11 +57,15 @@ badges:
   - name: Terraform Version
     image: https://img.shields.io/badge/terraform-1.x%20|%200.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform
     url: https://github.com/hashicorp/terraform/releases
+  - name: AWS Provider Version
+    image: https://img.shields.io/badge/AWS-3%20and%202.0+-F8991D.svg?logo=terraform
+    url: https://github.com/terraform-providers/terraform-provider-aws/releases
 
 requirements: |-
 
   This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
   - [terraform](https://github.com/hashicorp/terraform)
+  - [python](https://www.python.org)
   - [taskfile](https://github.com/go-task/task)
 
 # Short description of this project
