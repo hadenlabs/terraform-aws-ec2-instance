@@ -17,11 +17,6 @@ variable "namespace" {
   description = "Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp'"
 }
 
-variable "environment" {
-  type        = string
-  description = "Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT'"
-}
-
 variable "stage" {
   type        = string
   description = "Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release'"
@@ -52,4 +47,28 @@ variable "public_key" {
 variable "private_key" {
   type        = string
   description = "private key"
+}
+
+variable "root_block_device" {
+  type        = map(any)
+  description = "parameters root block device"
+  default     = {}
+}
+
+variable "enabled_snapshot" {
+  description = "enabled snapshot of root ebs"
+  type        = bool
+  default     = false
+}
+
+variable "snapshot_timeouts" {
+  type        = map(any)
+  description = "nested mode: NestingSingle, min items: 0, max items: 0"
+  default     = {}
+}
+
+variable "ebs_block_device" {
+  description = "Additional EBS block devices to attach to the instance"
+  type        = map(any)
+  default     = {}
 }

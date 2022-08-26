@@ -9,7 +9,7 @@ exclude: >
 
 repos:
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.1.0
+    rev: v2.2.1
     hooks:
       - id: codespell
         args: [--ignore-words=.codespell-ignores]
@@ -50,7 +50,7 @@ repos:
       - id: fix-encoding-pragma
       - id: sort-simple-yaml
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: 3b954a828aba046d66e781e493bf73e22e44d4db
+    rev: e50751c9323b0a03f27271c57513f5c389f6591b
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
@@ -83,7 +83,6 @@ repos:
       - id: terraform-fmt
       - id: terraform-tfsec
 
-      - id: checkov
       - id: gitleaks
         args:
           - --path=.
@@ -92,3 +91,9 @@ repos:
       - id: hadolint
         args:
           - --config=.ci/linters/.hadolint.yaml
+  - repo: https://github.com/bridgecrewio/checkov.git
+    rev: '2.1.139'
+    hooks:
+      - id: checkov
+        args:
+          - --config-file=.ci/linters/checkov.yml

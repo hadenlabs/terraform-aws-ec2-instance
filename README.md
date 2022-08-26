@@ -12,7 +12,7 @@
 
   -->
 
-[![Latest Release](https://img.shields.io/github/release/hadenlabs/terraform-aws-ec2-instance)](https://github.com/hadenlabs/terraform-aws-ec2-instance/releases) [![Lint](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/lint-code)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=lint-code) [![CI](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/ci)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=ci) [![Test](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/test)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=test) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-orange)](https://keepachangelog.com) [![Terraform Version](https://img.shields.io/badge/terraform-1.x%20|%200.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform)](https://github.com/hashicorp/terraform/releases)
+[![Latest Release](https://img.shields.io/github/release/hadenlabs/terraform-aws-ec2-instance)](https://github.com/hadenlabs/terraform-aws-ec2-instance/releases) [![Lint](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/lint-code)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=lint-code) [![CI](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/ci)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=ci) [![Test](https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-ec2-instance/test)](https://github.com/hadenlabs/terraform-aws-ec2-instance/actions?workflow=test) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-orange)](https://keepachangelog.com) [![Terraform Version](https://img.shields.io/badge/terraform-1.x%20|%200.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform)](https://github.com/hashicorp/terraform/releases) [![AWS Provider Version](https://img.shields.io/badge/AWS-3%20and%202.0+-F8991D.svg?logo=terraform)](https://github.com/terraform-providers/terraform-provider-aws/releases)
 
 # terraform-aws-ec2-instance
 
@@ -23,6 +23,7 @@ terraform-aws-ec2-instance for project
 This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
 
 - [terraform](https://github.com/hashicorp/terraform)
+- [python](https://www.python.org)
 - [taskfile](https://github.com/go-task/task)
 
 ## Usage

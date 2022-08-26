@@ -24,9 +24,12 @@ export const testGenerator: PlopGeneratorConfig = {
   actions: (data) => {
     const answers = data as Answers
     const containerPath = `${testPath}/instance-${slugify(answers.testName, '-')}`
+    const containerDocsPath = `${containerPath}/docs`
 
     if (!pathExists(containerPath)) {
       pathMake(containerPath)
+      pathMake(containerDocsPath)
+      pathMake(path.join(containerDocsPath, 'include'))
     }
 
     const actions: Actions = []
@@ -70,6 +73,13 @@ export const testGenerator: PlopGeneratorConfig = {
       type: 'add',
       templateFile: `${baseTemplatesPath}/test/versions.add.hbs`,
       path: `${containerPath}/versions.tf`,
+      abortOnFail: true
+    })
+
+    actions.push({
+      type: 'add',
+      templateFile: `${baseTemplatesPath}/test/docs/include/terraform.md`,
+      path: `${containerDocsPath}/include/terraform.md`,
       abortOnFail: true
     })
 

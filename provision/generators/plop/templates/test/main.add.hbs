@@ -1,11 +1,37 @@
 module "tags" {
   source      = "hadenlabs/tags/null"
-  version     = "0.1.1"
+  version     = ">=0.1"
   namespace   = var.namespace
-  environment = var.environment
+
   stage       = var.stage
   name        = var.name
   tags        = var.tags
+}
+
+#tfsec:ignore:AWS082
+resource "aws_default_vpc" "default" {
+  tags = var.tags
+}
+
+resource "aws_subnet" "this" {
+  vpc_id                  = aws_default_vpc.default.id
+  cidr_block              = "172.31.48.0/20"
+  map_public_ip_on_launch = true
+  tags                    = module.tags.tags
+  depends_on = [
+    module.tags,
+  ]
+}
+
+module "key" {
+  source     = "hadenlabs/key-pair/aws"
+  version    = ">=0.1"
+  name       = module.tags.name
+  tags       = module.tags.tags
+  public_key = var.public_key
+  depends_on = [
+    module.tags,
+  ]
 }
 
 module "main" {
@@ -13,6 +39,17 @@ module "main" {
   name           = module.tags.name
   ami            = data.aws_ami.amazon_linux.id
   tags           = module.tags.tags
-  public_key     = var.public_key
   private_key    = var.private_key
+  aws_key        = module.key.name
+  enabled_docker = var.enabled_docker
+  vpc_id         = aws_default_vpc.default.id
+  subnet_id      = aws_subnet.this.id
+  root_block_device = var.root_block_device
+  ebs_block_device  = var.ebs_block_device
+  enabled_snapshot  = var.enabled_snapshot
+  snapshot_timeouts = var.snapshot_timeouts
+  depends_on = [
+    module.tags,
+    module.key,
+  ]
 }

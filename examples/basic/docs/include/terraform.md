@@ -32,7 +32,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_enabled_docker"></a> [enabled\_docker](#input\_enabled\_docker) | enabled install docker | `bool` | `false` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT' | `string` | `"us-east-1"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Solution name, e.g. 'app' or 'jenkins' | `string` | `"jenkins"` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | `"namespace"` | no |
 | <a name="input_private_key"></a> [private\_key](#input\_private\_key) | private key | `string` | n/a | yes |

@@ -15,7 +15,7 @@ To contribute to terraform-aws-ec2-instance project on [GitHub](https://github.c
 
 ## Getting started
 
-To follow the instructions in this guide and start contributing to terraform-aws-ec2-instance project on Gitlab:
+To follow the instructions in this guide and start contributing to terraform-aws-ec2-instance project on GitHub:
 
 1.  **Fork** the repo on GitHub
 2.  **Clone** the project to your own machine

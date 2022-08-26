@@ -18,12 +18,6 @@ variable "namespace" {
   default     = "namespace"
 }
 
-variable "environment" {
-  type        = string
-  description = "Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT'"
-  default     = "us-east-1"
-}
-
 variable "stage" {
   type        = string
   description = "Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release'"

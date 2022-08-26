@@ -49,6 +49,7 @@ vars:
     TMP_CHANGELOG.md
     .task
     *.lock.hcl
+    .external_modules
 
 tasks:
   default:
