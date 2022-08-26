@@ -29,12 +29,6 @@ func Test{{pascalCase testName}}Success(t *testing.T) {
 	enableDocker := false
 	publicKey := filepath.Join(conf.App.RootPath, string(testutil.PublicKey))
 	privateKey := filepath.Join(conf.App.RootPath, string(testutil.PrivateKey))
-	// snapshot
-	enableSnapshot := false
-	snapshotTimeouts := map[string]interface{}{
-		"create": "5h",
-		"delete": "15h",
-	}
 	// ebs
 	ebsBlockDevices := map[string]interface{}{}
 
@@ -46,16 +40,12 @@ func Test{{pascalCase testName}}Success(t *testing.T) {
 			"namespace":      namespace,
 			"stage":          stage,
 			"name":           name,
-			"root_block_device": rootBlockDevice,
 			"enabled_docker": enableDocker,
 			"tags":           tags,
 			"public_key":     publicKey,
 			"private_key":    privateKey,
 			// ebs
 			"ebs_block_device": ebsBlockDevices,
-			// snapshot
-			"enabled_snapshot":  enableSnapshot,
-			"snapshot_timeouts": snapshotTimeouts,
 		},
 	}
 

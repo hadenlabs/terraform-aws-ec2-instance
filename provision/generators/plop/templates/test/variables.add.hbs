@@ -49,24 +49,6 @@ variable "private_key" {
   description = "private key"
 }
 
-variable "root_block_device" {
-  type        = map(any)
-  description = "parameters root block device"
-  default     = {}
-}
-
-variable "enabled_snapshot" {
-  description = "enabled snapshot of root ebs"
-  type        = bool
-  default     = false
-}
-
-variable "snapshot_timeouts" {
-  type        = map(any)
-  description = "nested mode: NestingSingle, min items: 0, max items: 0"
-  default     = {}
-}
-
 variable "ebs_block_device" {
   description = "Additional EBS block devices to attach to the instance"
   type        = map(any)

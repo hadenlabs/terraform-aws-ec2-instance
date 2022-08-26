@@ -44,10 +44,7 @@ module "main" {
   enabled_docker = var.enabled_docker
   vpc_id         = aws_default_vpc.default.id
   subnet_id      = aws_subnet.this.id
-  root_block_device = var.root_block_device
   ebs_block_device  = var.ebs_block_device
-  enabled_snapshot  = var.enabled_snapshot
-  snapshot_timeouts = var.snapshot_timeouts
   depends_on = [
     module.tags,
     module.key,
