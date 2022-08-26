@@ -12,9 +12,21 @@
     source      = "hadenlabs/tags/null"
     version     = ">=0.1"
     namespace   = var.namespace
+
     stage       = var.stage
     name        = var.name
     tags        = var.tags
+  }
+
+  resource "aws_default_vpc" "default" {
+    tags = var.tags
+  }
+
+  resource "aws_subnet" "this" {
+    vpc_id                  = aws_default_vpc.default.id
+    cidr_block              = "172.30.9.0/24"
+    map_public_ip_on_launch = true
+    tags                    = module.tags.tags
   }
 
   module "key" {
@@ -36,6 +48,8 @@
     tags           = module.tags.tags
     private_key    = var.private_key
     aws_key        = module.key.name
+    vpc_id         = aws_default_vpc.default.id
+    subnet_id      = aws_subnet.this.id
     depends_on = [
       module.tags,
       module.key,
@@ -51,9 +65,21 @@
     source      = "hadenlabs/tags/null"
     version     = ">=0.1"
     namespace   = var.namespace
+
     stage       = var.stage
     name        = var.name
     tags        = var.tags
+  }
+
+  resource "aws_default_vpc" "default" {
+    tags = var.tags
+  }
+
+  resource "aws_subnet" "this" {
+    vpc_id                  = aws_default_vpc.default.id
+    cidr_block              = "172.30.9.0/24"
+    map_public_ip_on_launch = true
+    tags                    = module.tags.tags
   }
 
   module "key" {
@@ -79,6 +105,8 @@
     tags           = module.tags.tags
     enabled_docker = var.enabled_docker
     private_key    = var.private_key
+    vpc_id         = aws_default_vpc.default.id
+    subnet_id      = aws_subnet.this.id
     depends_on = [
       module.tags,
       module.key,

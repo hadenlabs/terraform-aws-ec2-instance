@@ -58,3 +58,13 @@ variable "rule_ingress" {
   description = "list rule for security group"
   default     = []
 }
+
+variable "vpc_id" {
+  type        = string
+  description = "id of vpc"
+}
+
+variable "subnet_id" {
+  type        = string
+  description = "id of subnet"
+}

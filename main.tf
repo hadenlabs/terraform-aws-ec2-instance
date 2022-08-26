@@ -19,23 +19,32 @@ locals {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
+}
 
+locals {
   input = {
     rule_ingress   = length(var.rule_ingress) != 0 ? var.rule_ingress : [local.defaults.rule_ingress]
     enabled_docker = var.enabled_docker
     aws_key        = var.aws_key
+    name           = var.name
+    tags           = var.tags
   }
+}
 
+locals {
   generated = {
     rule_ingress = {
       for key, value in local.input.rule_ingress : key => merge(local.defaults.rule_ingress, value)
     }
-    name           = var.name
-    tags           = var.tags
+
+    name           = local.input.name
+    tags           = local.input.tags
     aws_key        = local.input.aws_key
     enabled_docker = local.input.enabled_docker
   }
+}
 
+locals {
   outputs = {
     rule_ingress   = local.generated.rule_ingress
     name           = local.generated.name
@@ -43,7 +52,6 @@ locals {
     enabled_docker = local.generated.enabled_docker
     aws_key        = local.generated.aws_key
   }
-
 }
 
 resource "aws_security_group" "this" {
@@ -51,6 +59,8 @@ resource "aws_security_group" "this" {
   description = "Allow traffic needed by instance"
 
   tags = local.outputs.tags
+
+  vpc_id = data.aws_vpc.this.id
 
   lifecycle {
     create_before_destroy = true
@@ -105,7 +115,6 @@ resource "aws_instance" "this" {
 
   lifecycle {
     ignore_changes = [
-      tags,
       source_dest_check,
       ami,
       user_data,
@@ -117,6 +126,8 @@ resource "aws_instance" "this" {
   instance_type     = var.instance_type
   key_name          = local.generated.aws_key
   source_dest_check = true
+
+  subnet_id = data.aws_subnet.this.id
 
   vpc_security_group_ids = [
     aws_security_group.this.id

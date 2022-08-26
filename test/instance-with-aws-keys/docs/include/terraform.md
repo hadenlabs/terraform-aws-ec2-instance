@@ -4,7 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=0.13 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=3.2.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=3.66.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >=0.1.0 |
 
 ## Providers
@@ -25,6 +25,8 @@
 
 | Name | Type |
 |------|------|
+| [aws_default_vpc.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc) | resource |
+| [aws_subnet.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet) | resource |
 | [aws_ami.amazon_linux](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 
 ## Inputs
