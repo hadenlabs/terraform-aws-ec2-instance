@@ -5,23 +5,38 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
+
+	"path/filepath"
+
+	"github.com/hadenlabs/terraform-aws-ec2-instance/config"
 	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/app/external/faker"
 	"github.com/hadenlabs/terraform-aws-ec2-instance/internal/testutil"
 )
 
 func Test{{pascalCase testName}}Success(t *testing.T) {
 	t.Parallel()
-
+	conf := config.Initialize()
 	tags := map[string]interface{}{
 		"tag1": "tags1",
 	}
+	rootBlockDevice := map[string]interface{}{
+		"volume_size": "64",
+	}
+
 	namespace := testutil.Company
-	environment := testutil.Environment
 	stage := testutil.Stage
 	name := faker.Server().Name()
-	enableDocker := true
-	publicKey := "../fixtures/keys/instance-test.pub"
-	privateKey := "../fixtures/keys/instance-test.pem"
+	enableDocker := false
+	publicKey := filepath.Join(conf.App.RootPath, string(testutil.PublicKey))
+	privateKey := filepath.Join(conf.App.RootPath, string(testutil.PrivateKey))
+	// snapshot
+	enableSnapshot := false
+	snapshotTimeouts := map[string]interface{}{
+		"create": "5h",
+		"delete": "15h",
+	}
+	// ebs
+	ebsBlockDevices := map[string]interface{}{}
 
 	terraformOptions := &terraform.Options{
 		// The path to where your Terraform code is located
@@ -29,13 +44,18 @@ func Test{{pascalCase testName}}Success(t *testing.T) {
 		Upgrade:      true,
 		Vars: map[string]interface{}{
 			"namespace":      namespace,
-			"environment":    environment,
 			"stage":          stage,
 			"name":           name,
+			"root_block_device": rootBlockDevice,
 			"enabled_docker": enableDocker,
 			"tags":           tags,
 			"public_key":     publicKey,
 			"private_key":    privateKey,
+			// ebs
+			"ebs_block_device": ebsBlockDevices,
+			// snapshot
+			"enabled_snapshot":  enableSnapshot,
+			"snapshot_timeouts": snapshotTimeouts,
 		},
 	}
 
