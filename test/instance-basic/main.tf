@@ -2,9 +2,25 @@ module "tags" {
   source    = "hadenlabs/tags/null"
   version   = ">=0.1"
   namespace = var.namespace
-  stage     = var.stage
-  name      = var.name
-  tags      = var.tags
+
+  stage = var.stage
+  name  = var.name
+  tags  = var.tags
+}
+
+#tfsec:ignore:AWS082
+resource "aws_default_vpc" "default" {
+  tags = var.tags
+}
+
+resource "aws_subnet" "this" {
+  vpc_id                  = aws_default_vpc.default.id
+  cidr_block              = "172.31.112.0/20"
+  map_public_ip_on_launch = true
+  tags                    = module.tags.tags
+  depends_on = [
+    module.tags,
+  ]
 }
 
 module "key" {
@@ -26,6 +42,8 @@ module "main" {
   private_key    = var.private_key
   aws_key        = module.key.name
   enabled_docker = var.enabled_docker
+  vpc_id         = aws_default_vpc.default.id
+  subnet_id      = aws_subnet.this.id
   depends_on = [
     module.tags,
     module.key,
